@@ -36,7 +36,7 @@ Make sure to output their current score after each round.
 
 At the end of all their rounds, output their total score.  If they got more than or equal to half the guesses right, tell them they won (and their score compared to the total guesses)!  Otherwise better luck next time (Still display their score compared to total guesses).
 
-Do not forget to comment and document your code!
+Do not forget to comment and document your code! 
 
 Example Run:
 
