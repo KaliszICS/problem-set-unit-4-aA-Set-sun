@@ -14,13 +14,14 @@ public class ProblemSet {
 
 
 		System.out.println("Welcome to the High Low Guessing Game.");
-
+	
 		System.out.print("Input a number of rounds to play: ");
 		System.out.println(inputChecker());
-		
+
+		System.out.println(selectMenu());
 	}
 
-	public static int inputChecker() {
+	public static int inputChecker() { //mostly functional, just weird spacing
 	
 	Scanner input = new Scanner(System.in);
 		
@@ -29,20 +30,27 @@ public class ProblemSet {
 		System.out.println("Invalid Input!");
 	
 		System.out.print("Input a number of rounds to play: ");
-
 	}
-
 	int rounds = input.nextInt();
+
 	while (rounds <= 0) {
 		input.nextLine(); //clear scanner
 		System.out.println("Invalid Input!");
-	
+
 		System.out.print("Input a number of rounds to play: ");
+		rounds = input.nextInt();
+
 	}
 	return rounds;
 }
  
+	public static String selectMenu() {
 
+		Scanner input = new Scanner(System.in);
+
+		int rounds = inputChecker();
+		return ("Round " + rounds);
+	}   
 	
 
 }
