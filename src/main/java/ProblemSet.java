@@ -5,8 +5,8 @@ Date Created: April 21, 2026
 Date Updated: April 21, 2026
 */
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ProblemSet {
 
@@ -50,6 +50,23 @@ public class ProblemSet {
 		int roundNum = inputChecker();
 		int points = 0;
 		int correctRound = 0;
+
+		System.out.println("What Range would you like to play between (#-#)?");
+		
+		String range = input.nextLine();
+
+			//(-5 - (-5)) -> 3 -
+			//(-5 - 5) or (5 - (-5))-> 2 -
+			//(5 - 5) -> 1 -
+
+			String greatRange ="";
+			String lessRange="";
+
+		//if (range.startsWith("-")) {//(-5 - 5) 
+		// 	greatRange = range.substring(range.indexOf(range.indexOf("-"), range.indexOf("-") + 1), range.length());
+		// 	lessRange = range.substring(0, range.lastIndexOf(range.indexOf("-"), range.indexOf("-") + 1));
+		// }
+		// System.out.println(lessRange + " yey " + greatRange);
 
         //round loop
 		for (int currentRound = 1; currentRound < roundNum + 1; currentRound++) {
@@ -123,7 +140,7 @@ public class ProblemSet {
 		return "yay";
 	}
 
-	public static int randomNumber (int num1, int num2) { //fix these numbers
+	public static int randomNumber(int num1, int num2) { //fix these numbers
 
 		Random random = new Random();
 
@@ -140,5 +157,8 @@ public class ProblemSet {
 
 
 	}
-}
+	
+	
+	}
+
 
