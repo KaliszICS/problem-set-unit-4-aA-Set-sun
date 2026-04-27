@@ -1,30 +1,21 @@
-/*
-Title: Problem Set Unit 4
+/* Title: Problem Set Unit 4
 Name: Angie
 Date Created: April 21, 2026
-Date Updated: April 27, 2026
-*/
-
+Date Updated: April 27, 2026 */
 import java.util.Random;
 import java.util.Scanner;
 
 public class ProblemSet {
-
 	public static void main(String args[]) {
 		Scanner input = new Scanner(System.in);
 
-
 		System.out.println("Welcome to the High Low Guessing Game.");
-
 		System.out.print("Input a number of rounds to play: ");
 		System.out.println(selectMenu());
-
 		input.close();
-		
 	}
 
 	public static int inputChecker() { //mostly functional, just weird spacing
-
 		Scanner input = new Scanner(System.in);
 
 		while (!(input.hasNextInt())) {
@@ -41,13 +32,11 @@ public class ProblemSet {
 
 			System.out.print("Input a number of rounds to play: ");
 			rounds = input.nextInt();
-
 		}
 		return rounds;
 	}
 
 	public static String selectMenu() {
-
 		Scanner input = new Scanner(System.in);
 
 		int roundNum = inputChecker();
@@ -61,10 +50,9 @@ public class ProblemSet {
 		int greatNum = findGreatRange(range);
 		int lessNum = findLowRange(range);
 		
-		while (greatNum - lessNum == 0) { //if your numbers are wack
+		while (greatNum - lessNum == 0) { //if your numbers are weird
 			range = "";
 			System.out.println("Invalid Input!");
-
 			System.out.println("What Range would you like to play between (#-#)?");
 		
 			range = findRange();
@@ -83,22 +71,16 @@ public class ProblemSet {
 
 			combinedMedian = firstMedian + ", " + secondMedian;
 			doubleMedian = true;
-
 		} else {
 			combinedMedian = "" + median;
-		}
-		//end range finding
-
-		
-
-        //round loop
-		for (int currentRound = 1; currentRound < roundNum + 1; currentRound++) {
+		} //end range finding
+  
+		for (int currentRound = 1; currentRound < roundNum + 1; currentRound++) {//round loop
 			System.out.println("Round " + currentRound + ":");
 
 			System.out.println("Please select High, Low, or Even:" + "\n" + "1. High (" + combinedMedian + " to " + greatNum + ")" + "\n" + "2. Low (" + lessNum + " to " + combinedMedian + ")" + "\n" + "3. Even (" + combinedMedian + ")" + "\n");
 
-			//checking for input
-			while (!(input.hasNextInt())) {
+			while (!(input.hasNextInt())) { //checking for input
 				input.nextLine(); //clear scanner
 				System.out.println("Invalid Input!");
 
@@ -106,7 +88,6 @@ public class ProblemSet {
 			}
 			int choice = input.nextInt();
 
-            //checking the input
 			while (choice <= 0 || choice > 3) {
 				input.nextLine(); //clear scanner
 				System.out.println("Invalid Input!");
@@ -119,7 +100,7 @@ public class ProblemSet {
 			int num = randomNumber(lessNum, greatNum);
 
 			if (choice == 1) {
-
+				
 				if (doubleMedian = true) { //check if there's two medians
 					if (num >= firstMedian || num >= secondMedian && num <= greatNum) {
 				 		result = "correct";
@@ -153,7 +134,6 @@ public class ProblemSet {
 						result = "correct";
 						points++; 
 						correctRound++;
-
 					}
 				}
 				else {
@@ -184,20 +164,17 @@ public class ProblemSet {
 
 			System.out.println("The number was " + num + ", you were " + result + "."); 
 			System.out.println("Current Score: " + points);
-		}
+		} //end of rounds loop
 		System.out.println("Total Score: " + points);
 		if (correctRound >= roundNum/2) {
 		return ("Congratulations you got " + correctRound + " out of " + roundNum + " rounds right!");
 		}
-		else {
+		else { //rng poor sucker
 			return "You got " + correctRound + " out of " + roundNum + " rounds correct. Better Luck next time.";
-
 		}
-		
 	}
 
 	public static int randomNumber(int num1, int num2) { 
-
 		Random random = new Random();
 
 		int great = Math.max(num1, num2);
@@ -207,7 +184,6 @@ public class ProblemSet {
 
 		do {
 			num = random.nextInt((great - less) + 1) + less; //negates it
-
 		} while (num < less && num == 0);
 		return num;
 	}
@@ -215,27 +191,22 @@ public class ProblemSet {
 	public static String findRange() {
 		Scanner input = new Scanner(System.in);
 		String range;
-		//checking range
+
 		while (!(input.hasNextLine())) {
 			range = "";			
 			System.out.println("Invalid Input!");
-
 			System.out.println("What Range would you like to play between (#-#)?");
 		}
 		range = input.nextLine();
-
 		range = range.replace(" ", ""); //take out any spaces
 
 		while (!(range.contains("-"))) {
 			range = "";
 			System.out.println("Invalid Input!");
-
 			System.out.println("What Range would you like to play between (#-#)?");
 			range = input.nextLine();
-
 		}
 		return range;
-
 	}
 
 	public static int findGreatRange (String range) {
@@ -246,7 +217,6 @@ public class ProblemSet {
 
 			if (firstDash != secondDash) { //both negative
 				greatRange = range.substring(range.lastIndexOf("-"));
-
 			} 
 			else { //one negative
 				greatRange = range.substring(range.lastIndexOf("-") + 1);
@@ -257,7 +227,6 @@ public class ProblemSet {
 		}
 		int greatNum = Integer.parseInt(greatRange);
 		return greatNum;
-		
 	}
 
 	public static int findLowRange (String range) {
@@ -276,11 +245,8 @@ public class ProblemSet {
 		else { //both positive
 			lessRange = range.substring(0, range.lastIndexOf("-"));
 		}
-
 		int lessNum = Integer.parseInt(lessRange);
 		return lessNum;
-	
 	}
-	
-} //what was THAT
+} //what was THAT 😨 at least I have less lines than mikah (i hope) lolololol
 
