@@ -1,0 +1,16 @@
+K(30%): 100
+I(30%): 80
+C(10%): 100
+A(30%): 85
+89.5%
+
+Range finder does not ensure the two values on either side of the - are numbers.
+FindGreatRange's firstDash is still using the one at index 0. If there are 2 negative numbers there would be 3 dashes.
+You had the right idea with the middle number but you used 2 ints to do your divison by 2 resulting in another int.  Cieling and floor are the same after because of this! Dividing by 2.0 would have made this work.
+Missing error message for non-ints during gameplay.
+if doubleMedian = true is assigning it to true.  Also don't compare to true and false, booleans are already booleans
+You don't need to check if the random number is >= lessNum or <= to GreatNum since your random number only generates numbers between that range anyway.
+You had a lot of really good things in your code but unfortunately ran into trouble on option 3.
+I like the overall division of methods, although you might have been able to consoldate a few.
+The checking phase and the menu both broke becuase of it.
+Good work!

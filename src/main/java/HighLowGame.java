@@ -5,7 +5,7 @@ Date Updated: April 27, 2026 */
 import java.util.Random;
 import java.util.Scanner;
 
-public class ProblemSet {
+public class HighLowGame {
 	public static void main(String args[]) {
 		Scanner input = new Scanner(System.in);
 
